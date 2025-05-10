@@ -120,6 +120,7 @@ nav>ul>li:nth-child(2):hover .aboutText{
   flex-direction: column;
   border: 1px solid rgb(104, 102, 102);
   overflow: auto;
+  border-radius: 10px;
 }
 
 .task {
@@ -133,7 +134,6 @@ nav>ul>li:nth-child(2):hover .aboutText{
   border: 1px solid #ffffff8e;
   border-radius: 10px;
   transition: background 2s ease-in-out, box-shadow 0.3s linear;
-  overflow: auto;
 }
 
 .task:hover {
@@ -153,7 +153,6 @@ nav>ul>li:nth-child(2):hover .aboutText{
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  /* background: rgba(245, 245, 245, 0); */
 }
 
 .button.deleteTask,
