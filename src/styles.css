@@ -187,7 +187,7 @@ nav>ul>li:nth-child(2):hover .aboutText{
 }
 
 .addTask {
-  background-image: url('add.svg');
+  background-image: url('../public/add.svg');
   transition: box-shoadow 0.3s linear;
 }
 
