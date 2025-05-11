@@ -173,6 +173,7 @@ nav > ul > li:nth-child(2):hover .aboutText {
 }
 
 .addTask {
+<<<<<<< HEAD
   background: linear-gradient(135deg, #28a745, #218838);
 }
 
@@ -340,3 +341,13 @@ nav > ul > li:nth-child(2):hover .aboutText {
     font-size: 0.9rem;
   }
 }
+=======
+  background-image: url('/WorkQueue-Task-Manager/add.svg'');
+  transition: box-shoadow 0.3s linear;
+}
+
+.addTask:hover{
+  box-shadow: 0 0 10px rgb(48, 171, 69);
+  background-color: #0e0f11;
+}
+>>>>>>> 60ef5baf27302fcc13166fa6af5438ec337f0fe5

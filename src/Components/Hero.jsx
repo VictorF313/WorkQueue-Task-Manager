@@ -56,6 +56,7 @@ const Hero = () => {
                     placeholder="Enter Task"
                     autoFocus
                 />
+<<<<<<< HEAD
                 <button className="addTask button" onClick={addTask}>
                     <p>Add Task</p>
                 </button>
@@ -66,6 +67,16 @@ const Hero = () => {
                     <div className="modalContent" onClick={e => e.stopPropagation()}>
                         <p>⚠️ Please write something before adding a task!</p>
                         <button onClick={closeModal} className="modalCloseBtn">Close</button>
+=======
+                <button className={`addTask button`} onClick={addTask}><p>Add Task</p></button>
+            </div>
+            <div className="taskarea">
+                {allTasks.map((taskItem, index) => (
+                    <div className="tasksAndButtons" key={index}>
+                        <div className="task">{taskItem}</div>
+                        <button className={`editTask button`} onClick={() => editTask(index)}><p>Edit Task</p></button>
+                        <button className={`deleteTask button`} onClick={() => deleteTask(index)}><p>Delete Task</p></button>
+>>>>>>> 60ef5baf27302fcc13166fa6af5438ec337f0fe5
                     </div>
                 </div>
             )}
