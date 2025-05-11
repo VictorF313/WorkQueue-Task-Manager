@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 const Hero = () => {
     const [task, setTask] = useState("");
     const [allTasks, setAllTasks] = useState([]);
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         const storedTasks = JSON.parse(localStorage.getItem("Task")) || [];
@@ -14,15 +15,19 @@ const Hero = () => {
     };
 
     const addTask = () => {
-        if (!task.trim()) {
-            alert("Task is empty");
+        if (task.trim() === "") {
+            setShowModal(true);
             return;
         }
 
-        const updatedTasks = [...allTasks, task];
+        const updatedTasks = [...allTasks, task.trim()];
         localStorage.setItem("Task", JSON.stringify(updatedTasks));
         setAllTasks(updatedTasks);
-        setTask(""); // clear input
+        setTask("");
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
     };
 
     const deleteTask = (indexToDelete) => {
@@ -33,9 +38,9 @@ const Hero = () => {
 
     const editTask = (index) => {
         const newTask = prompt("Edit the task:", allTasks[index]);
-        if (newTask !== null) {
+        if (newTask !== null && newTask.trim() !== "") {
             const updatedTasks = [...allTasks];
-            updatedTasks[index] = newTask;
+            updatedTasks[index] = newTask.trim();
             localStorage.setItem("Task", JSON.stringify(updatedTasks));
             setAllTasks(updatedTasks);
         }
@@ -51,16 +56,38 @@ const Hero = () => {
                     placeholder="Enter Task"
                     autoFocus
                 />
-                <button className={`addTask button`} onClick={addTask}></button>
+                <button className="addTask button" onClick={addTask}>
+                    <p>Add Task</p>
+                </button>
             </div>
-            <div className="taskarea">
-                {allTasks.map((taskItem, index) => (
-                    <div className="tasksAndButtons" key={index}>
-                        <div className="task">{taskItem}</div>
-                        <button className={`editTask button`} onClick={() => editTask(index)}></button>
-                        <button className={`deleteTask button`} onClick={() => deleteTask(index)}></button>
+
+            {showModal && (
+                <div className="modalOverlay" onClick={closeModal}>
+                    <div className="modalContent" onClick={e => e.stopPropagation()}>
+                        <p>⚠️ Please write something before adding a task!</p>
+                        <button onClick={closeModal} className="modalCloseBtn">Close</button>
                     </div>
-                ))}
+                </div>
+            )}
+
+            <div className="taskarea">
+                {allTasks.length === 0 ? (
+                    <div className="emptyNotice">
+                        No tasks available. Add one to get started!
+                    </div>
+                ) : (
+                    allTasks.map((taskItem, index) => (
+                        <div className="tasksAndButtons" key={index}>
+                            <div className="task">{taskItem}</div>
+                            <button className="editTask button" onClick={() => editTask(index)}>
+                                <p>Edit Task</p>
+                            </button>
+                            <button className="deleteTask button" onClick={() => deleteTask(index)}>
+                                <p>Delete Task</p>
+                            </button>
+                        </div>
+                    ))
+                )}
             </div>
         </div>
     );
