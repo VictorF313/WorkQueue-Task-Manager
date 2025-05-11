@@ -51,14 +51,14 @@ const Hero = () => {
                     placeholder="Enter Task"
                     autoFocus
                 />
-                <button className={`addTask button`} onClick={addTask}></button>
+                <button className={`addTask button`} onClick={addTask}><p>Add Task</p></button>
             </div>
             <div className="taskarea">
                 {allTasks.map((taskItem, index) => (
                     <div className="tasksAndButtons" key={index}>
                         <div className="task">{taskItem}</div>
-                        <button className={`editTask button`} onClick={() => editTask(index)}></button>
-                        <button className={`deleteTask button`} onClick={() => deleteTask(index)}></button>
+                        <button className={`editTask button`} onClick={() => editTask(index)}><p>Edit Task</p></button>
+                        <button className={`deleteTask button`} onClick={() => deleteTask(index)}><p>Delete Task</p></button>
                     </div>
                 ))}
             </div>
