@@ -5,12 +5,9 @@ const Navbar = () => {
         <nav className='navbar'>
             <p>WorkQueue - Task Manager</p>
             <ul>
-                <li>Home</li>
-                <li>About
-                    <div className="aboutText">This was a pet project by VictorF313/Sharique in React Js</div>
+                <li className='bi bi-info-circle-fill about'>
+                    <div className="aboutText">This was a small project by VictorF313/Sharique in React Js</div>
                 </li>
-                <li>Services</li>
-                <li>Contact Us</li>
             </ul>
         </nav>
     );

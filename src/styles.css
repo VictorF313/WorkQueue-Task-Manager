@@ -41,20 +41,24 @@ nav > ul > li {
   font-weight: bold;
   cursor: pointer;
   color: #fff;
+  font-size: 1.5rem;
   transition: border-bottom 0.3s ease, font-size 0.3s ease;
+  color: black;
 }
 
 nav > ul > li:hover {
   font-weight: bolder;
-  font-size: 1.1rem;
+  font-size: 1.7rem;
   border-bottom: 1px solid #ffc107;
+  color: white;
 }
 
 .aboutText {
   display: none;
   position: absolute;
   top: 10%;
-  right: 10%;
+  right: 0%;
+  font-size: 20px;
   padding: 10px;
   border: 1px solid #ccc;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -64,7 +68,7 @@ nav > ul > li:hover {
   background: rgb(41, 37, 37);
 }
 
-nav > ul > li:nth-child(2):hover .aboutText {
+nav > ul > li:nth-child(1):hover .aboutText {
   display: block;
 }
 
@@ -123,18 +127,18 @@ nav > ul > li:nth-child(2):hover .aboutText {
   flex-direction: column;
   border: 1px solid rgb(104, 102, 102);
   overflow: auto;
-  margin-top: 1rem;
-  padding: 1rem;
+  margin-top: 0.2rem;
+  padding: 0.8rem;
   border-radius: 10px;
 }
 
 .task {
   width: 70vw;
-  margin: 15px 0;
-  padding: 10px;
+  margin: 10px 0;
+  padding: 15px;
   font-size: 1.25rem;
   text-align: left;
-  color: rgb(19, 6, 6);
+  color: #ffffff;
   background: linear-gradient(135deg, rgba(26, 115, 153, 0.365), #8f144d52);
   border: 1px solid #ffffff8e;
   border-radius: 10px;
@@ -145,7 +149,14 @@ nav > ul > li:nth-child(2):hover .aboutText {
 }
 
 .task:hover {
-  background: linear-gradient(135deg, rgb(26, 115, 153), #8f144d);
+  /* background: linear-gradient(135deg, rgb(26, 115, 153), #8f144d); original */
+  /* background: linear-gradient(135deg, #00ffff, #ff00ff); Neon Glow Gradient */
+  /* background: linear-gradient(135deg, #ff6a00, #ee0979); Sunset Accent Gradient */
+  /* background: linear-gradient(135deg, #4fd1c5, #2a9d8f); Cool Ice Gradient
+ */
+  /* background: linear-gradient(135deg, #3a0ca3, #4361ee); Electric Blue to Violet
+ */
+  background: linear-gradient(135deg, #1c1d21, #2b2d33);
   background-size: 200% 200%;
   background-position: right center;
   box-shadow: 0 0 10px #7d2adca1;
@@ -160,26 +171,29 @@ nav > ul > li:nth-child(2):hover .aboutText {
 }
 
 .button {
-  min-width: 90px;
+  min-width: 70px;
   height: 50px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   font-weight: bold;
   transition: all 0.3s ease;
-  color: white;
+  color: rgb(16, 16, 16);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
+.button:hover{
+  color: #ffffff;
+}
+
 .addTask {
-<<<<<<< HEAD
   background: linear-gradient(135deg, #28a745, #218838);
 }
 
 .addTask:hover {
   background: linear-gradient(135deg, #218838, #1e7e34);
-  transform: translateY(-2px);
+  transform: translateY(2px);
 }
 
 .editTask {
@@ -188,7 +202,7 @@ nav > ul > li:nth-child(2):hover .aboutText {
 
 .editTask:hover {
   background: linear-gradient(135deg, #117a8b, #0f6674);
-  transform: translateY(-2px);
+  transform: translateY(2px);
 }
 
 .deleteTask {
@@ -197,7 +211,7 @@ nav > ul > li:nth-child(2):hover .aboutText {
 
 .deleteTask:hover {
   background: linear-gradient(135deg, #bd2130, #a71d2a);
-  transform: translateY(-2px);
+  transform: translateY(2px);
 }
 
 .emptyNotice {
@@ -341,13 +355,3 @@ nav > ul > li:nth-child(2):hover .aboutText {
     font-size: 0.9rem;
   }
 }
-=======
-  background-image: url('/WorkQueue-Task-Manager/add.svg'');
-  transition: box-shoadow 0.3s linear;
-}
-
-.addTask:hover{
-  box-shadow: 0 0 10px rgb(48, 171, 69);
-  background-color: #0e0f11;
-}
->>>>>>> 60ef5baf27302fcc13166fa6af5438ec337f0fe5
