@@ -6,7 +6,7 @@ const Navbar = () => {
             <p>WorkQueue - Task Manager</p>
             <ul>
                 <li className='bi bi-info-circle-fill about'>
-                    <div className="aboutText">This was a small project by VictorF313/Sharique in React Js</div>
+                    <div className="aboutText">This project was a collaborative effort by VictorF313/Sharique, developed using React.js.</div>
                 </li>
             </ul>
         </nav>
