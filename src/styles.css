@@ -52,6 +52,22 @@ nav>ul>li:hover {
   color: white;
 }
 
+.export {
+  list-style: none;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.5rem;
+  transition: color 0.5s ease, font-size 0.5s ease;
+  color: black;
+}
+
+.export:hover {
+  font-weight: bolder;
+  font-size: 1.7rem;
+  color: white;
+}
+
 .aboutText {
   display: none;
   position: absolute;
@@ -68,7 +84,7 @@ nav>ul>li:hover {
   transition: display 0.3s linear, background 0.5s linear;
 }
 
-nav>ul>li:nth-child(1):hover .aboutText {
+nav>ul>li:nth-child(2):hover .aboutText {
   display: block;
 }
 
