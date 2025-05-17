@@ -24,12 +24,10 @@ const Navbar = () => {
         return [];
     };
 
-    // Initialize data on mount
     useEffect(() => {
         setFileData(loadData());
     }, []);
 
-    // On export click, update fileData to latest before triggering CSV generation
     const handleExportClick = () => {
         const latestData = loadData();
         setFileData(latestData);
@@ -42,15 +40,15 @@ const Navbar = () => {
                 <CSVLink
                     data={fileData}
                     headers={headers}
-                    filename="Notes.csv"
+                    filename="WorkQueue-Notes.csv"
                     onClick={handleExportClick}
                 >
-                    <li className="bi bi-upload export">
+                    <li className="bi bi-box-arrow-down export">
                     </li>
                 </CSVLink>
                 <li className="bi bi-info-circle-fill about">
                     <div className="aboutText">
-                        This project was developed by VictorF313/Sharique, using React.js.
+                        This project was developed by VictorF313/Sharique using React.js.
                     </div>
                 </li>
             </ul>
