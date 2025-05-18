@@ -46,6 +46,7 @@ const Hero = () => {
         }
     };
 
+
     return (
         <div className="hero">
             <div className="entryField">
@@ -63,28 +64,35 @@ const Hero = () => {
             {showModal && (
                 <div className="modalOverlay" onClick={closeModal}>
                     <div className="modalContent" onClick={e => e.stopPropagation()}>
-                        <p>⚠️ Please write something before adding a task!</p>
+                        <p>Please write something before adding a task!</p>
                         <button onClick={closeModal} className="modalCloseBtn">Close</button>
                     </div>
                 </div>
             )}
 
-            <div className="taskarea">
-                {allTasks.length === 0 ? (
-                    <div className="emptyNotice">
-                        No tasks available. Add one to get started!
+            <div className="taskSection">
+                <div className="taskCounter">
+                    <div className="counter">
+                        Total Tasks: {allTasks.length}
                     </div>
-                ) : (
-                    allTasks.map((taskItem, index) => (
-                        <div className="tasksAndButtons" key={index}>
-                            <div className="task">{taskItem}</div>
-                            <button className="bi bi-pencil-square editTask button" onClick={() => editTask(index)}>
-                            </button>
-                            <button className="bi bi-trash-fill deleteTask button" onClick={() => deleteTask(index)}>
-                            </button>
+                </div>
+                <div className="taskarea">
+                    {allTasks.length === 0 ? (
+                        <div className="emptyNotice">
+                            No tasks available. Add one to get started!
                         </div>
-                    ))
-                )}
+                    ) : (
+                        allTasks.map((taskItem, index) => (
+                            <div className="tasksAndButtons" key={index}>
+                                <div className="task">{taskItem}</div>
+                                <button className="bi bi-pencil-square editTask button" onClick={() => editTask(index)}>
+                                </button>
+                                <button className="bi bi-trash-fill deleteTask button" onClick={() => deleteTask(index)}>
+                                </button>
+                            </div>
+                        ))
+                    )}
+                </div>
             </div>
         </div>
     );
