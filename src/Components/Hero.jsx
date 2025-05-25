@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 
 const Hero = () => {
     const [task, setTask] = useState("");
@@ -46,12 +46,27 @@ const Hero = () => {
         }
     };
 
+    const getLocalStorageSize = () => {
+        let total = 0;
+        for (let key in localStorage) {
+            if (localStorage.hasOwnProperty(key)) {
+                const value = localStorage.getItem(key);
+                total += key.length + value.length;
+            }
+        }
+
+        const bytes = total * 2;
+        const kilobytes = bytes / 1024;
+        return { bytes, kilobytes };
+    };
+
+    const { kilobytes } = useMemo(() => getLocalStorageSize(), [allTasks]);
 
     return (
         <div className="hero">
             <div className="entryField">
                 <input
-                    id='textHolder'
+                    id="textHolder"
                     value={task}
                     onChange={handleChange}
                     placeholder="Enter Task"
@@ -71,11 +86,17 @@ const Hero = () => {
             )}
 
             <div className="taskSection">
-                <div className="taskCounter">
+                <div className="details">
                     <div className="counter">
                         Total Tasks: {allTasks.length}
                     </div>
+
+                    <div className="totalSpace">
+                        Total Space Used: {kilobytes.toFixed(2)} KB/{(kilobytes/1024).toFixed(2)} MB
+                    </div>
                 </div>
+
+
                 <div className="taskarea">
                     {allTasks.length === 0 ? (
                         <div className="emptyNotice">
@@ -85,10 +106,8 @@ const Hero = () => {
                         allTasks.map((taskItem, index) => (
                             <div className="tasksAndButtons" key={index}>
                                 <div className="task">{taskItem}</div>
-                                <button className="bi bi-pencil-square editTask button" onClick={() => editTask(index)}>
-                                </button>
-                                <button className="bi bi-trash-fill deleteTask button" onClick={() => deleteTask(index)}>
-                                </button>
+                                <button className="bi bi-pencil-square editTask button" onClick={() => editTask(index)}></button>
+                                <button className="bi bi-trash-fill deleteTask button" onClick={() => deleteTask(index)}></button>
                             </div>
                         ))
                     )}

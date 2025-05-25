@@ -48,7 +48,7 @@ const Navbar = () => {
                 </CSVLink>
                 <li className="bi bi-info-circle-fill about">
                     <div className="aboutText">
-                        This project was developed by VictorF313/Sharique using React.js.
+                        This project was developed by VictorF313/Sharique using React
                     </div>
                 </li>
             </ul>
