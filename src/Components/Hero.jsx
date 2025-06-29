@@ -1,13 +1,25 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 
 const Hero = () => {
     const [task, setTask] = useState("");
     const [allTasks, setAllTasks] = useState([]);
     const [showModal, setShowModal] = useState(false);
+    const inputRef = useRef(null);
 
     useEffect(() => {
         const storedTasks = JSON.parse(localStorage.getItem("Task")) || [];
         setAllTasks(storedTasks);
+    }, []);
+
+    useEffect(() => {
+        const handleKeyPress = (e) => {
+            if (e.key.length === 1 && inputRef.current !== document.activeElement) {
+                inputRef.current.focus();
+            }
+        };
+
+        document.addEventListener("keydown", handleKeyPress);
+        return () => document.removeEventListener("keydown", handleKeyPress);
     }, []);
 
     const handleChange = (e) => {
@@ -65,15 +77,15 @@ const Hero = () => {
     return (
         <div className="hero">
             <div className="entryField">
-                <input
+                <textarea
                     id="textHolder"
+                    ref={inputRef}
                     value={task}
                     onChange={handleChange}
                     placeholder="Enter Task"
                     autoFocus
                 />
-                <button className="bi bi-plus-square-fill addTask button" onClick={addTask}>
-                </button>
+                <button className="bi bi-plus-square-fill addTask button" onClick={addTask}></button>
             </div>
 
             {showModal && (
@@ -90,12 +102,10 @@ const Hero = () => {
                     <div className="counter">
                         Total Tasks: {allTasks.length}
                     </div>
-
                     <div className="totalSpace">
-                        Total Space Used: {kilobytes.toFixed(2)} KB/{(kilobytes/1024).toFixed(2)} MB
+                        Total Space Used: {kilobytes.toFixed(2)} KB / {(kilobytes / 1024).toFixed(2)} MB
                     </div>
                 </div>
-
 
                 <div className="taskarea">
                     {allTasks.length === 0 ? (

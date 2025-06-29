@@ -104,9 +104,9 @@ nav>ul>li:nth-child(2):hover .aboutText {
 
 #textHolder {
   width: 60vw;
-  height: 4rem;
+  min-height: 4.1rem;
   margin: 20px;
-  padding: 12px;
+  padding: 18px;
   font-size: 1.5rem;
   color: #fff;
   background: transparent;
@@ -114,7 +114,7 @@ nav>ul>li:nth-child(2):hover .aboutText {
   border-radius: 10px;
   outline: none;
   text-align: left;
-  resize: none;
+  resize: vertical;
   transition: border 0.3s linear, box-shadow 0.3s linear;
 }
 
@@ -143,6 +143,8 @@ nav>ul>li:nth-child(2):hover .aboutText {
 }
 
 .task {
+  overflow: auto;
+  resize: vertical;
   width: 80vw;
   margin: 10px 0;
   padding: 15px;
@@ -150,14 +152,16 @@ nav>ul>li:nth-child(2):hover .aboutText {
   text-align: left;
   color: #ffffff;
   background: linear-gradient(to right, #1b1b1b25, #3d3d3d);
-  border: 1px dashed #ffffff8e;
+  border: 1px solid #676060;
   border-radius: 10px;
-  transition: background 0.6s ease-in-out, box-shadow 0.3s linear, transform 0.3s linear;
+  transition: color 0.5s ease-in-out, transform 0.3s linear;
   background-size: 200% 200%;
 }
 
-.task:hover {
-  box-shadow: 0 0 15px #764ba2;
+t.task:hover {
+  /* background: whitesmoke; */
+  /* color: rgb(21, 209, 68) */
+  color: #667eea;
 }
 
 .tasksAndButtons {
