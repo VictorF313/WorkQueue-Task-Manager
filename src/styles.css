@@ -104,12 +104,13 @@ nav>ul>li:nth-child(2):hover .aboutText {
 
 #textHolder {
   width: 60vw;
+  height: 4.1rem;
   min-height: 4.1rem;
   margin: 20px;
   padding: 18px;
   font-size: 1.5rem;
   color: #fff;
-  background: transparent;
+  background: linear-gradient(to right, #1f1e1e, #1b1b1b25);
   border: 1px solid rgba(255, 255, 255, 0.558);
   border-radius: 10px;
   outline: none;
@@ -125,8 +126,7 @@ nav>ul>li:nth-child(2):hover .aboutText {
 }
 
 #textHolder:focus {
-  border-color: #484747;
-  box-shadow: 0 0 15px #764ba2;
+  border: 1px solid #764ba2;
 }
 
 .taskarea {
@@ -143,8 +143,6 @@ nav>ul>li:nth-child(2):hover .aboutText {
 }
 
 .task {
-  overflow: auto;
-  resize: vertical;
   width: 80vw;
   margin: 10px 0;
   padding: 15px;
